@@ -9,6 +9,7 @@ datasource db {
 
 model Deposit {
   id    String @id @default(uuid())
+  name String
   price Int 
   info String
 
@@ -17,6 +18,7 @@ model Deposit {
 
 model Withdrawn {
   id    String @id @default(uuid())
+  name String
   price Int 
   info String
 
