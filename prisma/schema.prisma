@@ -6,3 +6,19 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Deposit {
+  id    String @id @default(uuid())
+  price Int 
+  info String
+
+  @@map("deposits")
+}
+
+model Withdrawn {
+  id    String @id @default(uuid())
+  price Int 
+  info String
+
+  @@map("withdrawns")
+}
