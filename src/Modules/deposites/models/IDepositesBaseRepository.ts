@@ -13,7 +13,7 @@ export type depositeSave = {
 
 export interface IDepositeBaseRepository {
     create(data: depositeCreate) : Promise<depositeSave>
-    findAll() : Promise<depositeSave[] | null>
+    findAll() : Promise<depositeSave[] | []>
     findByName(name: string) : Promise<depositeSave[] | null>
 
 }
