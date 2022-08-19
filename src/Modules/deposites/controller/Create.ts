@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { DepositePrismaRepository } from "../models/IDepositesPrismaRepository";
+import { DepositePrismaRepository } from "../models/DepositesPrismaRepository";
 import { CreateService } from "../services/create";
 
 export class DepositeCreate {
