@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { DepositeController } from "../Modules/deposites/controller/Create";
+import { DepositeCreate } from "../Modules/deposites/controller/Create";
 
 const route = Router();
-const DepositeCreate = new DepositeController()
+const create = new DepositeCreate().create
 
-route.post('/deposites', DepositeCreate.create)
+route.post('/deposites', create)
 
 export { route }
