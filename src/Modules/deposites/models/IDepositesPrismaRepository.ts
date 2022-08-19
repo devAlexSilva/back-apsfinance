@@ -24,7 +24,7 @@ export class DepositePrismaRepository implements IDepositeBaseRepository {
     return deposite;
   }
 
-  async findByName(name: string): Promise<depositeSave[] | null> {
+  async findByName(name: string): Promise<depositeSave | null> {
     const deposite = await prisma.deposit.findFirst({
       where: {
         name: {

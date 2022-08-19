@@ -12,7 +12,7 @@ export class CreateService {
     if (existsDeposite) throw new Error("this product already exists");
 
     try {
-      const deposite = this.repository.create(data);
+      const deposite = await this.repository.create(data);
       return deposite;
     } catch (err) {
       throw new Error(`${err} \n\nfailed to create`);
