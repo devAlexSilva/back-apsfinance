@@ -7,7 +7,7 @@ export class CreateService {
   constructor(private repository: IDepositeBaseRepository) {}
 
   async create(data: depositeCreate) {
-    const existsDeposite = await this.repository.findByName(data.name);
+    const existsDeposite = await this.repository.getByName(data.name);
 
     if (existsDeposite) throw new Error("this product already exists");
 

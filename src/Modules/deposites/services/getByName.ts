@@ -1,9 +1,9 @@
 import { IDepositeBaseRepository } from '../models/IDepositesBaseRepository'
 
-export class GetAllService {
+export class GetByNameService {
     constructor(private repo: IDepositeBaseRepository){}
 
-    async getAllService(){
-        return await this.repo.getAll()
+    async getByNameService(name: string){
+        return await this.repo.getByName(name)
     }
 }

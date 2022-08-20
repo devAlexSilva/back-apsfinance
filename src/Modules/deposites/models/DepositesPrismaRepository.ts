@@ -19,12 +19,12 @@ export class DepositePrismaRepository implements IDepositeBaseRepository {
     return deposite;
   }
 
-  async findAll(): Promise<depositeSave[] | []> {
+  async getAll(): Promise<depositeSave[] | []> {
     const deposite = await prisma.deposit.findMany({});
     return deposite;
   }
 
-  async findByName(name: string): Promise<depositeSave | null> {
+  async getByName(name: string): Promise<depositeSave | null> {
     const deposite = await prisma.deposit.findFirst({
       where: {
         name: {
