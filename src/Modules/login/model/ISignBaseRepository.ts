@@ -1,9 +1,9 @@
-export type data = {
+export type Data = {
     email: string,
     password: string
 }
 
-export type Response = {
+export type UserLoged = {
     user: {
         id: string,
         email: string
@@ -12,5 +12,5 @@ export type Response = {
 }
 
 export interface ISignBaseRepository {
-    execute(data: data) : Promise<Error | Response>
+    execute(data: Data) : Promise<Error | UserLoged>
 }
