@@ -7,7 +7,7 @@ export class DepositeGetAll {
     const repo = new DepositePrismaRepository();
     const service = new GetAllService(repo);
 
-    const deposites = await service.getAllService();
+    const deposites = await service.getAllService(req.body);
     return res.json(deposites)
   }
 }
