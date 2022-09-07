@@ -7,20 +7,34 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  id            String      @id @default(uuid())
+  email         String      @unique
+  password      String
+  userDeposit   Deposit[]
+  userWithdrawn Withdrawn[]
+
+  @@map("users")
+}
+
 model Deposit {
-  id    String @id @default(uuid())
-  name String
-  price Int 
-  info String
+  id          String @id @default(uuid())
+  name        String
+  price       Int
+  info        String
+  userId      String
+  userDeposit User   @relation(fields: [userId], references: [id])
 
   @@map("deposits")
 }
 
 model Withdrawn {
-  id    String @id @default(uuid())
-  name String
-  price Int 
-  info String
+  id          String @id @default(uuid())
+  name        String
+  price       Int
+  info        String
+  userId      String
+  userWithdrawn User   @relation(fields: [userId], references: [id])
 
   @@map("withdrawns")
 }
