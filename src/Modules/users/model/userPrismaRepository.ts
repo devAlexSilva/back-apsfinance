@@ -10,6 +10,12 @@ export class UserPrismaRepository implements IUserBaseRepository {
     const { email, password } = data;
     if (!email || !password) return new Error("email and password is required");
 
+    const userExists = await prisma.user.findFirst({
+      where: { email },
+    });
+
+    if (userExists) return new Error("user already exists");
+
     const user = await prisma.user.create({
       data: {
         email,
