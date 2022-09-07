@@ -10,5 +10,5 @@ export type userSave = {
 }
 
 export interface IUserBaseRepository {
-    create(data: userCreate) : Promise<userSave | string>
+    create(data: userCreate) : Promise<userSave | Error>
 }

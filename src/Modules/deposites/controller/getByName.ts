@@ -6,7 +6,8 @@ export class DepositeGetByName {
   async get(req: Request, res: Response) {
     const repo = new DepositePrismaRepository();
     const service = new GetByNameService(repo);
-    const { userId, name } = req.body
+    const userId = req.body
+    const name = req.params.name
 
     const deposites = await service.getByNameService(userId, name);
     return res.json(deposites)

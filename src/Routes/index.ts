@@ -10,9 +10,9 @@ const getAllDeposites = new DepositeGetAll().getAll;
 const getByNameDeposites = new DepositeGetByName().get;
 const createUser = new CreateUserController().create;
 
+route.post("/users", createUser);
 route.post("/deposites", create);
 route.get("/deposites", getAllDeposites);
 route.get("/deposites/:name", getByNameDeposites);
-route.post("/users", createUser);
 
 export { route };

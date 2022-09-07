@@ -7,14 +7,18 @@ import {
 
 export class DepositePrismaRepository implements IDepositeBaseRepository {
   async create(data: depositeCreate): Promise<depositeSave> {
-    const { name, info, price, userId } = data;
+    const { name, info, price, userId} = data;
 
     const deposite = await prisma.deposit.create({
       data: {
         name,
         price,
         info,
-        userId,
+        userDeposit: {
+          connect: {
+            id: userId
+          }
+        }
       },
     });
     return deposite;

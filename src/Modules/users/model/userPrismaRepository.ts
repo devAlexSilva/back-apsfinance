@@ -6,19 +6,16 @@ import {
 } from "./IuserBaseRepository";
 
 export class UserPrismaRepository implements IUserBaseRepository {
-    async create(data: userCreate): Promise<userSave | string> {
-        const { email, password } = data
-        try{
-        const user = await prisma.user.create({
-            data: {
-                email,
-                password
-            }
-        })
-        return user
-    } catch(err){
-        return `creation failed with error: 
-        ${err}`
-    }
-    }
+  async create(data: userCreate): Promise<userSave | Error> {
+    const { email, password } = data;
+    if (!email || !password) return new Error("email and password is required");
+
+    const user = await prisma.user.create({
+      data: {
+        email,
+        password,
+      },
+    });
+    return user;
+  }
 }
