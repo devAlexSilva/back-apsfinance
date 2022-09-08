@@ -2,10 +2,10 @@ import { prisma } from "../../../Database";
 import {
   withdrawCreate,
   withdrawSave,
-  IDepositeBaseRepository,
+  IWithdrawBaseRepository,
 } from "./IWithdrawBaseRepository";
 
-export class DepositePrismaRepository implements IDepositeBaseRepository {
+export class WithdrawPrismaRepository implements IWithdrawBaseRepository {
   async create(data: withdrawCreate): Promise<withdrawSave> {
     const { name, info, price, userId } = data;
 
