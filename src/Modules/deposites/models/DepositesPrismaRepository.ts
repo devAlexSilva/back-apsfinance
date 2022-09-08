@@ -7,7 +7,7 @@ import {
 
 export class DepositePrismaRepository implements IDepositeBaseRepository {
   async create(data: depositeCreate): Promise<depositeSave> {
-    const { name, info, price, userId} = data;
+    const { name, info, price, userId } = data;
 
     const deposite = await prisma.deposit.create({
       data: {
@@ -16,9 +16,9 @@ export class DepositePrismaRepository implements IDepositeBaseRepository {
         info,
         userDeposit: {
           connect: {
-            id: userId
-          }
-        }
+            id: userId,
+          },
+        },
       },
     });
     return deposite;
@@ -27,8 +27,8 @@ export class DepositePrismaRepository implements IDepositeBaseRepository {
   async getAll(id: string): Promise<depositeSave[] | []> {
     const deposite = await prisma.deposit.findMany({
       where: {
-        userId: id
-      }
+        userId: id,
+      },
     });
     return deposite;
   }

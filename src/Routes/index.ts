@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { Authentication } from "../Authentication/auth";
 import { DepositeCreate } from "../Modules/deposites/controller/Create";
 import { DepositeGetAll } from "../Modules/deposites/controller/getAll";
 import { DepositeGetByName } from "../Modules/deposites/controller/getByName";
@@ -12,10 +13,10 @@ const getByNameDeposites = new DepositeGetByName().get;
 const createUser = new CreateUserController().create;
 const login = new SignController().execute;
 
-route.post("/users", createUser);
-route.post("/deposites", create);
-route.get("/deposites", getAllDeposites);
-route.get("/deposites/:name", getByNameDeposites);
 route.post("/login", login);
+route.post("/users", createUser);
+route.post("/deposites", Authentication, create);
+route.get("/deposites", Authentication, getAllDeposites);
+route.get("/deposites/:name", Authentication, getByNameDeposites);
 
 export { route };

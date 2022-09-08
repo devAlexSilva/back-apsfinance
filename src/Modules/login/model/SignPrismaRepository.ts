@@ -2,7 +2,7 @@ import { ISignBaseRepository, Data } from "./ISignBaseRepository";
 import { prisma } from "../../../Database";
 import jwt from "jsonwebtoken";
 
-const secret = process.env.JWT_SECRET || "s";
+export const secret = process.env.JWT_SECRET || "s";
 
 export class SignPrismaRepository implements ISignBaseRepository {
   async execute({ email, password }: Data) {
