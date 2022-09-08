@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { WithdrawPrismaRepository } from "../models/WithdrawPrismaRepository";
 import { CreateService } from "../services/create";
 
-export class DepositeCreate {
+export class WithdrawCreate {
   async create(req: Request, res: Response) {
     const repository = new WithdrawPrismaRepository();
     const service = new CreateService(repository);

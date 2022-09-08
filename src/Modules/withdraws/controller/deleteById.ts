@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
 import { WithdrawPrismaRepository } from "../models/WithdrawPrismaRepository";
-import { DeleteByIdService } from "../services/deleteById";
+import { DeleteWithdrawService } from "../services/deleteById";
 
-export class DeleteByIdController {
+export class DeleteWithdrawController {
   async execute(req: Request, res: Response) {
     const repository = new WithdrawPrismaRepository();
-    const service = new DeleteByIdService(repository);
+    const service = new DeleteWithdrawService(repository);
 
     const { withdrawId } = req.body;
     const deletedWithdraw = await service.execute(withdrawId);

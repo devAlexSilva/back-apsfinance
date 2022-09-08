@@ -1,6 +1,6 @@
 import { IWithdrawBaseRepository } from "../models/IWithdrawBaseRepository";
 
-export class DeleteByIdService {
+export class DeleteWithdrawService {
   constructor(private repository: IWithdrawBaseRepository) {}
 
   async execute(withdrawId: string) {

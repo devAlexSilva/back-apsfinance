@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
 import { DepositePrismaRepository } from "../models/DepositesPrismaRepository";
-import { DeleteByIdService } from "../services/deleteById";
+import { DeleteDepositeService } from "../services/deleteById";
 
-export class DeleteByIdController {
+export class DeleteDepositeController {
   async execute(req: Request, res: Response) {
     const repository = new DepositePrismaRepository();
-    const service = new DeleteByIdService(repository);
+    const service = new DeleteDepositeService(repository);
 
     const { depositeId } = req.body;
     console.log('log do controller: ', depositeId)

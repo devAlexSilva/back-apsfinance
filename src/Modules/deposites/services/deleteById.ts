@@ -1,6 +1,6 @@
 import { IDepositeBaseRepository } from "../models/IDepositesBaseRepository";
 
-export class DeleteByIdService {
+export class DeleteDepositeService {
   constructor(private repository: IDepositeBaseRepository) {}
 
   async execute(depositeId: string) {
