@@ -13,7 +13,7 @@ export type withdrawSave = {
     userId: string
 }
 
-export interface IDepositeBaseRepository {
+export interface IWithdrawBaseRepository {
     create(data: withdrawCreate) : Promise<withdrawSave>
     getAll(userId: string) : Promise<withdrawSave[] | []>
     getByName(userId: string, name: string) : Promise<withdrawSave | null>
