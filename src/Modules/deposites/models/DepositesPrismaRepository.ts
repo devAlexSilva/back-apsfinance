@@ -45,4 +45,17 @@ export class DepositePrismaRepository implements IDepositeBaseRepository {
     });
     return deposite;
   }
+
+  async deleteById(depositeId: string): Promise<Error | null> {
+    try {
+    const deletedDeposite = await prisma.deposit.delete({
+      where: {id: depositeId},
+    });
+    // ***********************************************************************
+console.log(deletedDeposite)
+    return null;
+  } catch(err){
+    return new Error('there is an error')
+}
+  }
 }
