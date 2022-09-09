@@ -6,8 +6,22 @@ import {
 } from "./IDepositesBaseRepository";
 
 export class DepositePrismaRepository implements IDepositeBaseRepository {
-  async create(data: depositeCreate): Promise<depositeSave> {
+  async create(data: depositeCreate): Promise<Error | depositeSave> {
     const { name, info, price, userId } = data;
+
+    const depositeExists = await prisma.user.findFirst({
+      where: { id: userId },
+      include: {
+        userDeposit: {
+          where: { name },
+          select: {
+            name: true,
+          },
+        },
+      },
+    });
+
+    if(depositeExists?.userDeposit[0]) return new Error('deposite already exists')
 
     const deposite = await prisma.deposit.create({
       data: {
@@ -48,14 +62,14 @@ export class DepositePrismaRepository implements IDepositeBaseRepository {
 
   async deleteById(depositeId: string): Promise<Error | null> {
     try {
-    const deletedDeposite = await prisma.deposit.delete({
-      where: {id: depositeId},
-    });
-    // ***********************************************************************
-console.log(deletedDeposite)
-    return null;
-  } catch(err){
-    return new Error('there is an error')
-}
+      const deletedDeposite = await prisma.deposit.delete({
+        where: { id: depositeId },
+      });
+      // ***********************************************************************
+      console.log(deletedDeposite);
+      return null;
+    } catch (err) {
+      return new Error("there is an error");
+    }
   }
 }

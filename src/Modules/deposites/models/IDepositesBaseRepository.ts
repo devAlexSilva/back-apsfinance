@@ -14,7 +14,7 @@ export type depositeSave = {
 }
 
 export interface IDepositeBaseRepository {
-    create(data: depositeCreate) : Promise<depositeSave>
+    create(data: depositeCreate) : Promise<Error | depositeSave>
     getAll(userId: string) : Promise<depositeSave[] | []>
     getByName(userId: string, name: string) : Promise<depositeSave | null>
     deleteById(depositeId: string) : Promise<Error | null>

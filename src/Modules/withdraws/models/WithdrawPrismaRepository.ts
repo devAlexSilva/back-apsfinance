@@ -9,7 +9,7 @@ export class WithdrawPrismaRepository implements IWithdrawBaseRepository {
   async create(data: withdrawCreate): Promise<withdrawSave> {
     const { name, info, price, userId } = data;
 
-    const deposite = await prisma.withdrawn.create({
+    const withdraw = await prisma.withdrawn.create({
       data: {
         name,
         price,
@@ -21,20 +21,20 @@ export class WithdrawPrismaRepository implements IWithdrawBaseRepository {
         },
       },
     });
-    return deposite;
+    return withdraw;
   }
 
   async getAll(id: string): Promise<withdrawSave[] | []> {
-    const deposite = await prisma.withdrawn.findMany({
+    const withdraw = await prisma.withdrawn.findMany({
       where: {
         userId: id,
       },
     });
-    return deposite;
+    return withdraw;
   }
 
   async getByName(userId: string, name: string): Promise<withdrawSave | null> {
-    const deposite = await prisma.withdrawn.findFirst({
+    const withdraw = await prisma.withdrawn.findFirst({
       where: {
         userId,
         name: {
@@ -43,7 +43,7 @@ export class WithdrawPrismaRepository implements IWithdrawBaseRepository {
         },
       },
     });
-    return deposite;
+    return withdraw;
   }
 
   async deleteById(withdrawId: string): Promise<Error | null> {

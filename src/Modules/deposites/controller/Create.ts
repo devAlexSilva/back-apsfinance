@@ -11,6 +11,9 @@ export class DepositeCreate {
     const data = { ...req.body, userId };
 
     const deposite = await service.create(data);
-    return res.json(deposite);
+
+    return deposite instanceof Error
+      ? res.status(400).json(deposite.message)
+      : res.json(deposite);
   }
 }
