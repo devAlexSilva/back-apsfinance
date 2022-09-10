@@ -51,9 +51,10 @@ export class WithdrawPrismaRepository implements IWithdrawBaseRepository {
       await prisma.withdrawn.delete({
         where: { id: withdrawId },
       });
-      return null;
     } catch (err) {
+      console.log(err);
       return new Error("there is an error");
     }
+    return null;
   }
 }

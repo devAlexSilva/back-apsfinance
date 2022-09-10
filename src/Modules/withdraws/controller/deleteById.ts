@@ -7,8 +7,8 @@ export class DeleteWithdrawController {
     const repository = new WithdrawPrismaRepository();
     const service = new DeleteWithdrawService(repository);
 
-    const { withdrawId } = req.body;
-    const deletedWithdraw = await service.execute(withdrawId);
+    const { transactionId } = req.params;
+    const deletedWithdraw = await service.execute(transactionId);
 
     return deletedWithdraw instanceof Error
       ? res.status(400).json(deletedWithdraw.message)

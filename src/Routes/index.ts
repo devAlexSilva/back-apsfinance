@@ -32,11 +32,11 @@ route.post("/users", createUser);
 route.post("/deposites", Authentication, createDeposites);
 route.get("/deposites", Authentication, getAllDeposites);
 route.get("/deposites/:name", Authentication, getByNameDeposites);
-route.delete("/deposites", Authentication, deleteDeposite);
+route.delete("/deposites/:transactionId", Authentication, deleteDeposite);
 
 route.post("/withdraws", Authentication, createWithdraw);
 route.get("/withdraws", Authentication, getAllWithdraw);
 route.get("/withdraws/:name", Authentication, getByNameWithdraw);
-route.delete("/withdraws", Authentication, deleteWithdraw);
+route.delete("/withdraws/:transactionId", Authentication, deleteWithdraw);
 
 export { route };

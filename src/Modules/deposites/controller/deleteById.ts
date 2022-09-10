@@ -7,9 +7,8 @@ export class DeleteDepositeController {
     const repository = new DepositePrismaRepository();
     const service = new DeleteDepositeService(repository);
 
-    const { depositeId } = req.body;
-    console.log('log do controller: ', depositeId)
-    const deletedDeposite = await service.execute(depositeId);
+    const { transactionId } = req.params;
+    const deletedDeposite = await service.execute(transactionId);
 
     return deletedDeposite instanceof Error
       ? res.status(400).json(deletedDeposite.message)
