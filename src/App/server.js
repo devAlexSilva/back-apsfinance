@@ -1,0 +1,11 @@
+"use strict";
+exports.__esModule = true;
+exports.app = void 0;
+require("dotenv/config");
+var express = require("express");
+var cors = require("cors");
+var app = express();
+exports.app = app;
+var port = process.env.PORT || 2727;
+app.use(cors());
+app.listen(port, function () { return console.log("\u2699\uFE0F http://localhost:".concat(port, " ")); });

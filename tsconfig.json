@@ -3,17 +3,12 @@
     "display": "Node 16",
   
     "compilerOptions": {
-      "lib": ["es2021"],
       "module": "commonjs",
-      "outDir": "./build",
-      "target": "es2021",
+      "target": "ES5",
+      "sourceMap": true,
+      "esModuleInterop": true
   
-      "strict": true,
-      "esModuleInterop": true,
-      "skipLibCheck": true,
-      "forceConsistentCasingInFileNames": true,
-      "moduleResolution": "node"
-    },
+      },
+
     
-    "include": ["src/**/*"]
   }

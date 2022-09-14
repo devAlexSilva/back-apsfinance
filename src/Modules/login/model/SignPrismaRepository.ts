@@ -1,6 +1,6 @@
 import { ISignBaseRepository, Data } from "./ISignBaseRepository";
 import { prisma } from "../../../Database";
-import jwt from "jsonwebtoken";
+import * as jwt from "jsonwebtoken";
 
 export const secret = process.env.JWT_SECRET || "s";
 
