@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "tsnd --respawn --transpile-only src/App/app.ts",
     "start": "node src/App/app.js",
-    "transpile": "tsc src/App/app.ts",
-    "postinstall": "tsc"
+    "transpile": "tsc src/App/app.ts"
   },
   "keywords": [],
   "author": "",
